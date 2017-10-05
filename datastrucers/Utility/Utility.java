@@ -26,7 +26,15 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Utility {
+	enum Months{ January,February,March,April,May,June,July,August,September,October,November,December }
+	enum Days   { Sun,Mon,Tue,Wed,Thu,Fri,Sat }
 
+	/**
+	 * @param userArithmeticExpression
+	 * @return
+	 * @author Hemanth
+	 * <p> This method for parentheses checking
+	 */
 	public static Stack<Character> parenthesesChecking(String userArithmeticExpression) {
 		Stack<Character> stack=new Stack<Character>();
 
@@ -57,10 +65,12 @@ public class Utility {
 	}
 	
 	/**
+	 * @param stack
+	 * @author Hemanth
 	 * this method for checking stack is empty or not if stack is empty
 	 * number of "(" and ")" are equal means expression have balanced parentheses
 	 * else expression have unbalanced parentheses
-	 * @param stack 
+	 *  
 	 */
 	public static void parenthesesBalancedChecking(Stack<Character> stack) {
 		
@@ -72,12 +82,15 @@ public class Utility {
 		}
 		
 	}
-
-	enum Months{ January,February,March,April,May,June,July,August,September,October,November,December }
-	enum Days   { Sun,Mon,Tue,Wed,Thu,Fri,Sat }
-
-       
+  
     //Method to match the given month and return its maximum days
+    /**
+     * @param mname
+     * @param y
+     * @return
+     * @author Hemanth
+     * <p> This method for finding maximum days in month
+     */
     public static  int findMaxDay(int mname, int y) {    
         int daysInMonth[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
 
@@ -87,8 +100,14 @@ public class Utility {
         return  daysInMonth[mname];     
     }
      
-    // Method to match the given weekday name and return its weekday no.
-     public static  int findDayNo(String wname){ 
+   
+     /**
+     * @param wname
+     * @return
+     * @author Hemanth
+     * Method to match the given weekday name and return its weekday no.
+     */
+    public static  int findDayNo(String wname){ 
     	 
     	 int find = 0;
     	 for(int i=0; i<7; i++) {
@@ -100,8 +119,15 @@ public class Utility {
         return find;
     }
      
-    // Method for creating the calendar
-     public static void fillCalendar(int maxDaysInMonth, int dayNumberInMonth, int month, int year) {
+     /**
+     * @param maxDaysInMonth
+     * @param dayNumberInMonth
+     * @param month
+     * @param year
+     * @author Hemanth
+     * This method for creating the calendar
+     */
+    public static void fillCalendar(int maxDaysInMonth, int dayNumberInMonth, int month, int year) {
     	 
     	LinkedList<String> daysList=new LinkedList<String>();
     	LinkedList<String>datesList=new LinkedList<String>();
@@ -122,8 +148,16 @@ public class Utility {
         
         printCalendar(daysList,datesList , month, year); //Calling method to print the calendar
     }
-     // Method for creating the calendar in queue
-     public static void fillCalendarQueue(int maxDaysInMonth, int dayNumberInMonth, int month, int year) {
+    
+     /**
+     * @param maxDaysInMonth
+     * @param dayNumberInMonth
+     * @param month
+     * @param year
+     * @author Hemanth
+     * This method for creating the calendar in queue
+     */
+    public static void fillCalendarQueue(int maxDaysInMonth, int dayNumberInMonth, int month, int year) {
      	LinkedList<String> daysList=new LinkedList<String>();
      	LinkedList<String>datesList=new LinkedList<String>();
          for(int i=0;i<Days.values().length;i++){
@@ -144,7 +178,15 @@ public class Utility {
          printCalendar(daysList,datesList , month, year); //Calling method to print the calendar
      }
      
-      public static void printCalendar(LinkedList<String> daysList, LinkedList<String> datesList, int month, int year) {  
+      /**
+     * @param daysList
+     * @param datesList
+     * @param month
+     * @param year
+     * @author Hemanth
+     * This method for dispaly the calendar 
+     */
+    public static void printCalendar(LinkedList<String> daysList, LinkedList<String> datesList, int month, int year) {  
         
     	System.out.println("\n\t-----------------------------------------------------------");
         System.out.println("\t\t\t   "+Months.values()[month-1]+" "+year); 
@@ -176,12 +218,12 @@ public class Utility {
         }
     
 
-	/**
-	 * This method for finding a first day in month
-	 * 
+	/** 
 	 * @param year
 	 * @param month
 	 * @return
+	 * @author Hemanth
+	 * This method for finding a first day in month
 	 */
 	public static String findMonthDay(int year, int month) {
 		  
@@ -196,12 +238,14 @@ public class Utility {
 	}   
 
 	/**
-	 * this method for reading file data 
+	 * @param file
+	 * @return
+	 * @author Hemanth
+	 * This method for reading file data 
 	 * by using of file reader reading data from file putting in to the buffer reader
 	 * and reading line by line data from buffer reader 
 	 * and splitting data by space and putting into the Integer array
 	 */
-	
 	public static String[] readingDataFromFile(File file) {
 		String []integersArray=null;
 		BufferedReader bufferedReader=null;
@@ -252,13 +296,15 @@ public class Utility {
 		
 	}
 	
+	
 	/**
+	 * @param integersArray
+	 * @return
+	 * @author Hemanth
 	 *  This method for adding elements to Map 
 	 *  and adding elements form integer array to Map 
-	 *  by using put method  
-	 * @return 
+	 *  by using put method
 	 */
-	
 	public static HashMap<Integer, String> addingArrayElemntsToMap(String [] integersArray){
 		
 		HashMap<Integer, String> map=new HashMap<Integer,String>();
@@ -270,12 +316,13 @@ public class Utility {
 	}
 	
 	/**
+	 * @param map 
+	 * @return 
+	 * @author Hemanth
 	 *  This method for adding elements to linked list
 	 *  and adding elements form Map to linked list 
 	 *  by using add method  and while adding converting to integer
 	 *  because in Map data is string type
-	 * @param map 
-	 * @return 
 	 */
 	
 	public static LinkedList<String> addingMapElementsToLinkedList(HashMap<Integer, String> map) {
@@ -288,14 +335,18 @@ public class Utility {
 			return linkedList;
 	}
 	
+	
 	/**
-	 * this method for checking the user entry is present in the linked list
+	 * @param file
+	 * @param linkedList
+	 * @param userSearch
+	 * @author Hemanth
+	 * This method for checking the user entry is present in the linked list
 	 * if user entry present in the linked list removing that element from list
 	 * if element is not there adding that element to linked list
 	 * and overwriting previous data on file with linked list data  
 	 * by using file writer and buffer writer
 	 */
-	
 	public static void userEntrySearching(File file,LinkedList<String> linkedList,String userSearch) {
 		
 		BufferedWriter bufferedWriter=null;
@@ -340,11 +391,12 @@ public class Utility {
 	}
 	
 	/**
-	 * this method for displaying file data to user screen 
+	 * @param file
+	 * @author Hemanth
+	 * This method for displaying file data to user screen 
 	 * by using of file reader reading a data from file putting in to the buffer reader
 	 * and reading line by line data from buffer reader 
 	 */
-	
 	public static void displayingListWords(File file) {
 
 		BufferedReader bufferedReader=null;
@@ -380,13 +432,16 @@ public class Utility {
 		}
 		
 	}
+	
+
 	/**
-	 * this method for reading file data 
+	 * @param integersArray
+	 * @return
+	 * This method for reading file data 
 	 * by using of file reader reading data from file putting in to the buffer reader
 	 * and reading line by line data from buffer reader 
 	 * and splitting data by space and putting into the Integer array
 	 */
-
 	public static LinkedList<String> addingArrayElemntsToToLinkedList(String[] integersArray) {
 		LinkedList<String> linkedList=new LinkedList<String>();
 		// adding data from words array to liked list object
@@ -397,6 +452,12 @@ public class Utility {
 					
 	}
 
+	/**
+	 * @param userString
+	 * @param popingString
+	 * @author Hemanth
+	 * <p>This method for checking whether given string is palindrome or not 
+	 */
 	public static void isStringPalindrome(String userString,String popingString) {
 		if(userString.equals(popingString)){
      	   System.out.println("Given string is palindrome: ");
@@ -405,6 +466,12 @@ public class Utility {
         }		
 	}
 
+	/**
+	 * @param deque
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for poing elemnts form deque
+	 */
 	public static String popingElementsDequeRare(Deque<Character> deque) {
 		String popingString="";
 		try {
@@ -420,6 +487,12 @@ public class Utility {
 		return popingString;
 	}
 
+	/**
+	 * @param userString
+	 * @return
+	 * @Hemanth
+	 * <p> This method for pushing elements DequeRare
+	 */
 	public static Deque<Character> pushingElementsDequeRare(String userString) {
 		Deque<Character> deque=new ArrayDeque<Character>();
 
@@ -435,6 +508,13 @@ public class Utility {
 	}
 		return deque;
 	}
+	/**
+	 * @param low
+	 * @param high
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for find prime numbers in given range
+	 */
 	public static  ArrayList<Integer> primeNumbers(int low,int high) {
 		
 		ArrayList<Integer> primeNumbersList=new ArrayList<Integer>();
@@ -455,6 +535,11 @@ public class Utility {
 		return primeNumbersList;
 	}
 	
+	/**
+	 * @param arrayList
+	 * @author Hemanth
+	 * <p>This method for print 2d array manner 
+	 */
 	public static void printArray(	ArrayList<Integer> arrayList){
 		int [][]integerArray=new int[10][25];
 		Iterator<Integer> iterator=arrayList.iterator();
@@ -483,6 +568,11 @@ public class Utility {
         }	
 	}
 
+	/**
+	 * @param primeAnagrams
+	 * @author Hemanth
+	 * <p>This method for generate anagram Queue 
+	 */
 	public static void generateAnagramQueue(int[][] primeAnagrams) {
 		
 		LinkedList<Integer> queue=new LinkedList<Integer>();
@@ -503,6 +593,13 @@ public class Utility {
 		}
 	}
 	
+	/**
+	 * @param low
+	 * @param high
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for generate prime numbers array 	 
+	 * */
 	public static int[][] primeNumbersArray(int low, int high){
 		int [][]primeNumbersArray= new int[10][25];
 
@@ -529,6 +626,11 @@ public class Utility {
 		return primeNumbersArray;
 	}
 	
+	/**
+	 * @param primeAnagrams
+	 * @author Hemanth
+	 * <p>This method for display prime anagrams array 	 
+	 */
 	public static void printPrimeAnagram(int [][]primeAnagrams){
 		System.out.println("*****************Anagramsss are : ");
 		for(int i=0;i<primeAnagrams.length;i++){
@@ -541,6 +643,11 @@ public class Utility {
 		}
 	}
 	
+	/**
+	 * @param primeNonAnagrams
+	 * @author Hemanth
+	 * <p>This method for display non  prime anagrams array 	
+	 */
 	public static void printPrimeNonAnagram(int [][]primeNonAnagrams){
 		System.out.println("**********************Non Anagramsss");
 		for(int i=0;i<primeNonAnagrams.length;i++){
@@ -553,6 +660,12 @@ public class Utility {
 		}
 	}
 	
+	/**
+	 * @param primeNumbersArray
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for anagram checking
+	 */
 	public static int[][] anagramChecking(int[][] primeNumbersArray) {
 		
 		int primeAnagramsArray[][]= new int[10][8];
@@ -585,6 +698,13 @@ public class Utility {
 		return primeAnagramsArray;
 	}
 	
+	/**
+	 * @param primeNumbersArray
+	 * @param primeAnagramsArray
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for non anagrams 
+	 */
 	public static int[][] nonAnagram( int[][] primeNumbersArray,int [][]primeAnagramsArray){
 		int[][] nonAnagramsArray= new int[10][17];
 		for(int i=0;i<primeNumbersArray.length;i++){
@@ -604,6 +724,11 @@ public class Utility {
 		return nonAnagramsArray;
 	}
 
+	/**
+	 * @param primeArray
+	 * @author Hemanth
+	 * <p>This method for generate anagram stack
+	 */
 	public  static void generateAnagramStack(int[][] primeArray) {
 		
 		LinkedList<Integer> stack=new LinkedList<Integer>();
@@ -625,6 +750,12 @@ public class Utility {
 		
 	}
 		
+	/**
+	 * @param n
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for find number of possibles to generate binary search tree
+	 */
 	public static long findPossibles(int n) {
 	
 		String t1 = fact(2*n);
@@ -633,6 +764,12 @@ public class Utility {
 		long count1 = Long.parseLong(t1)/(Long.parseLong(t2)*Long.parseLong(t3));
 		return count1;
     }
+	/**
+	 * @param n
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for find number of possibles 
+	 */
 	public static String fact(int n) {
        BigInteger fact = new BigInteger("1");
        for (int i = 1; i <= n; i++) {
@@ -641,6 +778,11 @@ public class Utility {
        return fact.toString();
 	}
 
+	/**
+	 * @return
+	 * * @author Hemanth
+	 * <p>This method for create queue in the bank
+	 */
 	public static LinkedList<String> createQueue() {
 		Scanner scanner=new Scanner(System.in);
 		LinkedList<String> queue=new LinkedList<String>();
@@ -675,6 +817,12 @@ public class Utility {
 
 	}
 
+	/**
+	 * @param queue
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for providing services to users  
+	 */
 	public static  LinkedList<String> selectService(LinkedList<String> queue) {
 		
 		Scanner scanner=new Scanner(System.in);
@@ -714,6 +862,13 @@ public class Utility {
 		return queue1;
 	}
 
+	/**
+	 * @param queue
+	 * @param withdrawlAmount
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for withdraw amount from his account
+	 */
 	private static String withdrawl(LinkedList<String> queue, int withdrawlAmount) {
 		
 		String[] personDetails=queue.removeFirst().split(" ");
@@ -723,6 +878,13 @@ public class Utility {
 		//return queue;
 	}
 
+	/**
+	 * @param queue
+	 * @param depositAmount
+	 * @return
+	 * @author Hemanth
+	 * <p>This method for deposit amount to his account
+	 */
 	private static String deposit(LinkedList<String> queue, int depositAmount) {
 		
 		String[] personDetails=queue.removeFirst().split(" ");
@@ -732,6 +894,11 @@ public class Utility {
 		//return queue;
 	}
 
+	/**
+	 * @param finalQueue
+	  * @author Hemanth
+	 * <p>This method for display  user amount from his account
+	 */
 	public static void displayUserAmount(LinkedList<String> finalQueue) {
 		
 		System.out.println("Details of users: ");
@@ -741,6 +908,12 @@ public class Utility {
 		}
 	}
 
+	/**
+	 * @param file
+	 * @return
+	 * @author Hemanth
+	 * <p> This method for reading data from file  and adding to list
+	 */
 	public static String[] readDataFromFile(File file) {
 		
 		String []integersArray=null;
@@ -794,6 +967,11 @@ public class Utility {
 	
 	}
 
+	/**
+	 * @param key
+	 * @author Hemanth
+	 * <p>This method for creating map key and value 
+	 */
 	public static void generateKeys(String key) {
 		
 		int remainder=Integer.parseInt(key)%11;
@@ -802,6 +980,11 @@ public class Utility {
 	
 	static Map<Integer,LinkedList<String>> map=new LinkedHashMap<Integer,LinkedList<String>>();
 	static LinkedList<String>list=new LinkedList<String>();
+	/**
+	 * @return
+	 * @author Hemanth
+	 * <p> This method for adding elements from map to linked list
+	 */
 	public static LinkedList<String> addingMapElementsToLinkedList( ) { 
 		LinkedList<String> linkedList=new LinkedList<String>();
 
@@ -813,6 +996,12 @@ public class Utility {
 			}
 			return linkedList;
 	}
+	/**
+	 * @param value
+	 * @param key
+	 * @author Hemanth
+	 * <p>This method for adding elements to Map 
+	 */
 	private static void fillingToMap(String value, int key) {
 		
 	
@@ -824,14 +1013,6 @@ public class Utility {
 
 			list1.add(value);
 			map.put(key, list1);
-		}
-		
-	}
-	public static void displyaValues() {
-		Iterator iterator=map.keySet().iterator();
-		while(iterator.hasNext()) {
-			int key=(int)iterator.next();
-			System.out.println(key+" : "+ map.get(key));
 		}
 		
 	}
